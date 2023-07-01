@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Les auteurs</title>
+      <?php include_once './include/script.php';?>
+  </head>
+
+  <body>
+
+    <main>
+
+      <div class="container">
+
+        
+        <?php include_once './include/menu.php';?> 
+        
+        <br>
+        <br>
+        <br>
+        
+        <!-- affiche le titre -->
+        <h1 class="d-flex justify-content-center align-items-center mb-15 mt-5" >Nos contributeurs</h1>
+        
+      
+      
+        <table class="table">
+          <thead style="background-color: #F7E6A4 ;">
+            <tr>
+              <th scope="col" class="col-2 text-center">#id</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+
+            <!-- récupère tous les auteurs -->
+            <?php foreach($auteurs as $row){ ?>
+              <tr>
+                <th scope="row" class="col-2 text-center"><?= $row->id_auteur; ?></th>
+
+                <!-- récupère les noms des auteurs -->
+                <td><?= $row->nom; ?></td>
+
+                <!-- récupère les prénoms des auteurs -->
+                <td><?= $row->prenom; ?></td>
+
+              </tr>
+              
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      </main>
+  </body>
+</html>
+    
+
+

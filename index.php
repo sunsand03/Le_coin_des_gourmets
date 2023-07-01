@@ -1,19 +1,28 @@
 <?php
-//intégre le fichier session.php
-include_once './templates/include/session.php';
+
+//inclut le fichier session.php
+include_once './include/session.php';
 
 
 //donne la valeur 'index' à $page
 $page = 'index';
 
 // appel du fichier contenant la méthode de débug
-require_once './lib/debug.php';
+require_once './bdd/debug.php';
 
-// appel des fichiers conntenant la classe utilisée    
-require_once './model/category.php';
+// appel des fichiers conntenant les classe utilisées   
+require_once './model/categorie.php';
+require_once './model/article.php';
 
+//création d'une nouvelle instance de la classe Category
 $CategoryModel = new Category();
+
+//récupère toutes les catégories d'article
 $categories = $CategoryModel->getAllCategory();
 
-//appel de la vue
-include './templates/index.phtml';
+// $articleModel = new Article;
+// $articleCategory = $articleModel->getArticleByCategoryId($idCategory);
+// d($articleCategory);
+
+//charge la vue
+include './template_view/index.phtml';

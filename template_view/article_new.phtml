@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=for, initial-scale=1.0">
+    <title>Nouvel article</title>
+    <?php include_once './include/script.php';?>
+</head>
+
+<body>
+
+<br><br><br><br>
+
+<?php include_once './include/menu.php';?>
+    
+    <div class="container">
+    
+    <form action="article_new.php" method="post" enctype="multipart/form-data">  
+    
+        <label>Titre</label>
+        <input class="form-control" name="titre" id="titre" placeholder="ici je place mon titre" ><br>
+        <label>Contenu</label>
+        <textarea class="form-control" name="contenu"></textarea><br>
+        <label>Photo</label>
+        <input class="form-control" type="file" name="photo" accept="image/jpeg"><br>
+        <label>Video</label>
+        <input class="form-control" type="text" name="video" ><br>
+        <label>Auteur</label>
+        <select class="form-control" name="id_auteur">
+            <?php foreach($authorList as $row){ ?>
+            <option value="<?php echo $row->id_auteur;?>"> <?php echo $row->nom .' '. $row->prenom ?></option>
+            <?php } ?>
+        </select>
+        <br>
+        <?php foreach($categoryList as $row){?>
+            <input type="checkbox" name="category[]" value="<?php echo $row->id_categorie; ?>"> <?php echo $row->nom; ?><br>
+        <?php }?>
+        <input class="form-control" type="submit" value="Envoyer">
+    </form>
+  
+
+    </div>
+</body>
+
+</html>
+
+<!-- pour tester le code -->
+<!-- die('ok'); -->

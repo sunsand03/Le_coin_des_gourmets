@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <?php include_once './include/script.php';?>
+</head>
+<body>
+<?php include_once './include/menu.php';?>
+<br><br><br>
+
+<div class="container">
+    <?php if(isset($_GET['inscription']) && $_GET['inscription'] == 'ok'){?>
+        <p class="alert alert-success">Merci de votre inscription</p>
+    <?php } ?>
+    
+    <h1>Page de connexion</h1>
+
+    <form action="login.php" method="post">
+       
+        <label for="">Email</label>
+        <input type="text" name="email" class="form-control">
+        <label for="">Mot de passe</label>
+        <input type="password" name="password" class="form-control">
+        <input type="submit" value="Login">
+   </form>
+    
+</div>
+    
+</body>
+</html>

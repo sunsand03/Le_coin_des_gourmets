@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les recettes</title>
+  <!-- chargement des script dans le head -->
+  <?php include_once './include/script.php'; ?>
+
+</head>
+
+<body>
+  <main>
+
+  
+    <?php include_once './include/menu.php'; ?>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+
+      <!-- affiche le titre  -->
+      <h1 class="d-flex justify-content-center align-items-center" style="margin-bottom: 15px;">Liste des recettes</h1>
+
+
+      <table class="table">
+
+        <!-- entête du tableau -->
+        <thead style="background-color: #F7E6A4 ;">
+          <tr>
+            <th scope="col" class="col-2 text-center">#id</th>
+            <th scope="col" class="col-6">titre</th>
+            <th scope="col" class="col-2 text-center">actions</th>
+          </tr>
+        </thead>
+
+        <!-- contenu du tableau -->
+        <tbody>
+
+          <!-- récupère tous les articles -->
+          <?php foreach ($articles as $row) { ?>
+            <tr>
+              <!-- affiche l'id de l'article -->
+              <td scope="row" class="col-2 text-center"><?php echo $row['id_article'] ?></td>
+
+              <!-- affiche le titre de l'article et renvoit vers la page détaillée -->
+              <td><a href="article_details.php?id=<?php echo $row['id_article'] ?>"><?php echo $row['titre']; ?></a></td>
+
+              <td>
+                <!-- bouton pour modifier l'article -->
+                <a href="article_update.php?id=<?php echo $row['id_article'] ?>">
+                  <span class="btn btn-info">Modifier</span>
+                </a>
+
+                <!-- bouton pour supprimer l'article NE MARCHE PAS-->
+                <span data-id="<?php echo $row['id_article'] ?>" class="btn btn-danger">Supprimer</span>
+              </td>
+
+            </tr>
+          <?php } ?>
+        </tbody>
+    </div>
+  </main>
+</body>
+
+<!-- NE MARCHE PAS -->
+<script>
+  // permet d'attendre le chargement complet de la page
+  document.addEventListener("DOMContentLoaded", function() {
+    // detection de tous les élements HTM%L contenant la classse fa-trash
+    let btn = document.querySelectorAll('.fa-trash');
+    // boucle sur tous les éléments
+    btn.forEach((elem) => {
+      // j'ajoute un évenement sur chaque bouton qui a la class fa-trash
+      elem.addEventListener('click', function(e) {
+        console.log(e.currentTarget.dataset.id);
+        // demande de confirmation à l'utilisateur
+        if (confirm('êtes vous sur de vouloir supprimer ?')) {
+          // si l'utilisateur répond oui, alors il va être redirigé vers la page qui correspond à l'article à supprimer
+          document.location.href = './article_delete.php?id=' + e.currentTarget.dataset.id;
+        }
+      })
+
+    })
+  })
+</script>
+
+</html>
