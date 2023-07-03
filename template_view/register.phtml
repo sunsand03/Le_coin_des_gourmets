@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <?php include_once './include/script.php';?>
+    <title>Inscription</title>
+
+    <!-- charge les différents scripts -->
+    <?php include_once './include/script.php'; ?>
+
+    <!-- charge le fichier css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
+
 <body>
+
 <?php include_once './include/menu.php';?>
 <br><br><br>
 
 <div class="container">
     <h1>Inscription</h1>
-   <form action="register.php" method="post">
+    <form action="register.php" method="post">
         <label for="">Nom</label>
         <input type="text" name="nom" class="form-control">
         <label for="">Prénom</label>
@@ -24,7 +32,10 @@
         <input type="password" name="password" class="form-control">
         <label for="">Merci de resaisir à nouveau votre mot de passe</label>
         <input type="password" name="password2" class="form-control">
-        <input type="submit" value="S'inscrire">
+
+        <div class="div mt-3">
+            <input type="submit" value="S'inscrire">
+        </div>
    </form>
 </div>
     

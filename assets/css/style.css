@@ -74,9 +74,10 @@ p, ul {
     font-size: 1rem;
 }
 
-/* Colore le nom de page active en rouge dans le menu */
+/* Colore le nom de page active en blanc dans le menu */
 .active-page {    
     color: white;
+    font-weight: bold;
 }
 
 /* colore la barre de navigation ayant cette classe en orange */

@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=for, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modifier un article</title>
+
+    <!-- charge les différents scripts -->
     <?php include_once './include/script.php'; ?>
+
+    <!-- charge le fichier css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <!--on ajout le multipartformdata pour pouvoir envoyer un fichier-->
+
+        <!--Formulaire de modification de l'article. Les données du formulaire sont encodées en "multipart/form-data", ce qui permet l'envoi de fichiers.-->
         <form action="article_update.php?id=<?php echo $article->id_article; ?>" method="post" enctype="multipart/form-data">
 
+            <!-- le champ 'id' est caché à l'utilisateur mais est bien envoyé lors de la soumision du formulaire -->
             <input type="hidden" name="id" value="<?php echo $article->id_article; ?>" />
 
+            <!-- récupère le contenu de l'article -->
             <label>Titre</label>
             <input class="form-control" value="<?php echo $article->titre; ?>" name="titre" id="titre" placeholder="Ici je place mon titre">
             <br />
@@ -29,11 +37,13 @@
             <input class="form-control" value="<?php echo $article->video; ?>" type="text" name="video">
             <br />
             <label>Auteur</label>
+
+            <!-- récupère la liste des auteurs -->
             <select name="id_auteur" class="form-control">
                 <?php foreach ($authorList as $row) { ?>
-                    <!--Si l'id_auteur contenu dans l'article est égale a l'id_auteur dans la boucle en cours-->
+                    <!--vérifie si l'ID de l'auteur de l'article en cours est égal à l'ID de l'auteur dans la boucle en cours -->
                     <?php if ($article->id_auteur == $row->id_auteur) { ?>
-                        <!--Alors on affiche le selected-->
+                        <!--Alors on affiche le selected pour sélectionner l'auteur-->
                         <option selected="selected" value="<?php echo $row->id_auteur; ?>"><?php echo $row->nom . ' ' . $row->prenom; ?></option>
                     <?php } else { ?>
                         <!--sinon on affiche l'option mais sans le selected-->
@@ -43,9 +53,10 @@
             </select>
             <br />
 
-
+            <!-- récupère les catégories -->
             <?php foreach ($categoryList as $row) { 
                 $string = '';
+                // coche celles qui sont déjà sélectionnées
                 if(in_array($row->id_categorie, $tabIdCategoryArticle)){
                     $string = 'checked';
                 }
@@ -54,8 +65,10 @@
 
             <?php } ?>
 
-
-            <input type="submit" value="Modifier">
+            <div class="div mt-3">
+                <input type="submit" value="Modifier">
+            </div>
+            
         </form>
     </div>
 

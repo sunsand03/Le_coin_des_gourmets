@@ -6,18 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=for, initial-scale=1.0">
     <title>Nouvelle recette</title>
+
+    <!-- charge les différents scripts -->
     <?php include_once './include/script.php'; ?>
+
+    <!-- charge le fichier css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 
 <body>
+
     <main>
-
-        <?php include_once './include/menu.php'; ?>
-
-        <h1 class="mt-10">Rédige ton article et partage nous ta meilleure recette</h1>
+        <?php include_once './include/menu.php'; ?>        
 
         <div class="container">
 
+            <h1 class="mt-10">Rédige ton article et partage nous ta meilleure recette</h1>
+
+
+            <!-- formulaire de rédaction -->
             <form action="article_new.php" method="post" enctype="multipart/form-data">
 
                 <label>Titre</label>
@@ -47,7 +55,9 @@
                 <?php } ?>                
                 
                 <!-- bouton d'envoi -->
-                <input class="form-control btn btn-success mt-10" type="submit" value="Envoyer">
+                <div class="div mt-3">
+                    <input class="form-control btn btn-success mt-10" type="submit" value="Envoyer">
+                </div>
             </form>
 
         </div>

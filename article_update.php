@@ -37,5 +37,5 @@ if (isset($_POST['titre'])) {
 }
 
 
-// appel de la vue
+// charge la vue
 include_once './template_view/article_update.phtml';

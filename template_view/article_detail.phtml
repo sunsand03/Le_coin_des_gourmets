@@ -1,31 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <?php include_once './include/script.php';?>
+    <title>Recette</title>
+
+     <!-- charge les différents scripts -->
+    <?php include_once './include/script.php'; ?>
+
+    <!-- charge le fichier css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
 
-    <h1>
-        <?php echo $article->titre; ?>
-        (<?php echo date_format(date_create($article->date_publication), 'd/m/Y H:i:s'); ?>)
-    </h1> 
-    <p>
-        <?php foreach($category as $row){?> <?php echo $row->nom; ?>&nbsp;
-        <?php }?>
-    </p>
-    <p><?php echo $article->contenu; ?></p>
-    <p>
-        <?php echo $article->nom;?> <?php echo $article->prenom;?>
-    </p>
-    <p>
-        <img src="<?php echo $article->image; ?>" >
-    </p>
-    <p>
-    <iframe width="560" height="315" src="<?php echo $article->video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </p>    
+    <div class="container">
+
+        
+        <!-- affiche le titre de la rectte et sa date de publication -->
+        <h1 class="mt-3 mb-3">
+            <?php echo $article->titre; ?>
+            (<?php echo date_format(date_create($article->date_publication), 'd/m/Y H:i:s'); ?>)
+        </h1>
+
+        <!-- affiche les catégories auxquels appartient l'article -->
+        <p>
+            <b>Catégorie(s) : </b> <?php foreach($category as $row){?> <?php echo $row->nom; ?>&nbsp;
+            <?php }?>
+        </p>
+
+         <!-- affiche l'image de l'article -->
+         <p>
+            <img src="<?php echo $article->image; ?>" >
+        </p>
+
+        
+        <!-- affiche le contenu de l'article -->
+        <p><?php echo $article->contenu; ?></p>
+
+        <!-- Affiche le nom et prénom de l'auteur -->
+        <p>
+            <b>Auteur : </b><?php echo $article->nom;?> <?php echo $article->prenom;?>
+        </p>
+       
+
+        <!-- récupère la vidéo de l'article si existante -->
+        <p>
+            <iframe width="560" height="315" src="<?php echo $article->video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </p>
+
+    </div>
+
 </body>
+
 </html>

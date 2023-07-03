@@ -20,9 +20,6 @@ $CategoryModel = new Category();
 //récupère toutes les catégories d'article
 $categories = $CategoryModel->getAllCategory();
 
-// $articleModel = new Article;
-// $articleCategory = $articleModel->getArticleByCategoryId($idCategory);
-// d($articleCategory);
 
 //charge la vue
 include './template_view/index.phtml';

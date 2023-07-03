@@ -1,10 +1,12 @@
 <?php
 
-// appel du fichier contenant les informations de connection
+// appel du fichier contenant les informations de connexion
 require_once './bdd/connexion.php';
 
 
-// définition de la classe
+/**
+ * Undocumented class
+ */
 class Article
 {
   // définition d'une méthode

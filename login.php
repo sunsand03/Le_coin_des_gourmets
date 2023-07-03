@@ -1,7 +1,12 @@
 <?php
+
+// charge le fichier pour démarrer la session
 include_once './include/session.php';
+
+// attribue une valeur à $page
 $page = 'login';
 
+// charge le modèle
 require_once './model/auteur.php';
 
 // test si des données sont envoyées depuis le formualaire
@@ -19,16 +24,19 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             session_start();
             $_SESSION['email'] = $_POST['email'];
 
+            // redirection vers la page d'accueil
             header('Location:index.php');
-            
+
+        //   message d'alerte si la connexion n'a pas pu se faire  
         } else {
             echo '<p class= alert-danger> Mauvais couple identifiant/mot de passe</p>';
         }
+
+    // message d'alerte si la connexion n'a pas pu se faire 
     } else {
         echo '<p class= alert-danger> Mauvais couple identifiant/mot de passe</p>';
     }
 }
 
-
-
+// charge la vue
 include_once './template_view/login.phtml';
