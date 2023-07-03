@@ -1,10 +1,18 @@
 <?php
 
+// appel du fichier contenant les informations de connexion
 require_once './bdd/connexion.php';
 
+/**
+ * crée le repo sur les catégories
+ */
 Class Category
 {
-      // définition d'une méthode
+  /**
+   * récupère toutes les catégories des articles
+   *
+   * @return void
+   */
   public function getAllCategory()
   {
     // appel de la fonction de connexion

@@ -5,11 +5,15 @@ require_once './bdd/connexion.php';
 
 
 /**
- * Undocumented class
+ * crée le repo des articles
  */
 class Article
 {
-  // définition d'une méthode
+  /**
+   * renvoit l'intégralité des articles contenus dans la bdd
+   *
+   * @return void
+   */
   public function getAllArticle()
   {
     // appel de la fonction de connexion
@@ -22,40 +26,13 @@ class Article
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     // retourne les résultats
     return ($result);
-  }
+  }  
 
-  public function get3lastArticle()
-  {
-    // appel de la fonction de connexion
-    $conn = connect();
-    // préparation de la requête
-    $query = $conn->prepare("SELECT * 
-                                FROM `Article`
-                                ORDER BY `Article`.`date_publication`
-                                LIMIT 3;");
-    // execution
-    $query->execute();
-    // récupère tous les résulatats sous forme de tableau
-    $result = $query->fetchAll(PDO::FETCH_OBJ);
-    // retourne les résultats
-    return ($result);
-  }
-
-  // fonction de départ
-  // public function getRandomArticle()
-  // {
-  //   // appel de la fonction de connexion
-  //   $conn = connect();
-  //   // préparation de la requête
-  //   $query = $conn->prepare("SELECT * FROM Article ORDER BY RAND() LIMIT 1;");
-  //   // execution
-  //   $query->execute();
-  //   // récupère tous les résulatats sous forme de tableau
-  //   $result = $query->fetch(PDO::FETCH_OBJ);
-  //   // retourne les résultats
-  //   return ($result);
-  // }
-
+    /**
+     * renvoit de manière alétoire un article contenu dans la bdd
+     *
+     * @return void
+     */
     public function getRandomArticle()
   {
     // appel de la fonction de connexion
@@ -64,18 +41,22 @@ class Article
     $query = $conn->prepare("SELECT * FROM Article 
                             JOIN posseder ON posseder.id_article = Article.id_article 
                             JOIN Categorie ON Categorie.id_categorie = posseder.id_categorie                            
-                            ORDER BY RAND() LIMIT 1; ");
-
-    // $query->bindValue(':idCategory', $idCategory,PDO::PARAM_INT);
+                            ORDER BY RAND() LIMIT 1; ");  
 
     // execution
     $query->execute();
-    // récupère tous les résulatats sous forme de tableau
+    // récupère tous les résultats sous forme de tableau
     $result = $query->fetch(PDO::FETCH_OBJ);
     // retourne les résultats
     return ($result);
   }
 
+  /**
+   * Renvoit un article selon l'id renseigné
+   *
+   * @param [type] $id
+   * @return void
+   */
   public function getArticle($id)
   {
     // appel de la fonction de connexion
@@ -90,12 +71,18 @@ class Article
     $query->bindValue('id', $id);
     // execution
     $query->execute();
-    // récupère tous les résulatats sous forme de tableau
+    // récupère tous les résultats sous forme de tableau
     $result = $query->fetch(PDO::FETCH_OBJ);
     // retourne les résultats
     return ($result);
   }
 
+  /**
+   * insert un article dans la bdd
+   *
+   * @param [type] $data
+   * @return integer
+   */
   public function insertArticle($data): int
   {
     // appel de la fonction de connexion
@@ -116,7 +103,7 @@ class Article
         :date_publication)
      "
     );
-    //   on rajoute htmlspecialchars pour éviter l'attaque XXS
+    // rajoute htmlspecialchars pour éviter l'attaque XXS
     $query->bindValue('titre', htmlspecialchars($data['titre']));
     $query->bindValue('contenu', htmlspecialchars($data['contenu']));
     $query->bindValue('image', htmlspecialchars($data['image']));
@@ -130,6 +117,14 @@ class Article
     return $conn->lastInsertId();
   }
 
+
+  /**
+   * insert les catégories renseignées pour l'article
+   *
+   * @param [type] $idArticle
+   * @param [type] $categories
+   * @return void
+   */
   public function insertCategoryArticle($idArticle, $categories)
   {
     // appel de la fonction de connexion
@@ -150,6 +145,12 @@ class Article
     }
   }
 
+  /**
+   * modifie l'article dans la bdd
+   *
+   * @param [type] $data
+   * @return void
+   */
   public function updateArticle($data)
   {
     // appel de la fonction de connexion
@@ -202,6 +203,12 @@ class Article
   }
 
 
+  /**
+   * renvoit tous les articles d'une catégorie
+   *
+   * @param [type] $id
+   * @return array
+   */
   public function getCategoryByArticleId($id): array
   {
     // appel de la fonction de connexion

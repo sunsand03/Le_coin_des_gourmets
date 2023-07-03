@@ -1,12 +1,18 @@
 <?php
 
-// appel du fichier contenant les informations de connection
+// appel du fichier contenant les informations de connexion
 require_once './bdd/connexion.php';
 
-// définition de la classe
+/**
+ * crée le repo des auteurs
+ */
 class Auteur
 {
-    // définition d'une méthode
+    /**
+     * renvoit l'intégralité des auteurs
+     *
+     * @return array
+     */
     public function getAllAuthor(): array
     {
         // appel de la fonction de connexion
@@ -21,7 +27,12 @@ class Auteur
         return ($result);
     }
 
-        // définition d'une méthode
+        /**
+         * recherche l'auteur dans la bdd à partir de l'adresse email
+         *
+         * @param [type] $email
+         * @return object
+         */
         public function getAuthorByEmail($email): object
         {
             // appel de la fonction de connexion
@@ -41,7 +52,12 @@ class Auteur
 
         }    
     
-    // définition d'une méthode
+    /**
+     * vérifie si une adresse email existe déjà dans la bdd
+     *
+     * @param [type] $email
+     * @return boolean
+     */
     public function emailExist($email): bool
     {  //void car la fonction ne retourne rien
         // appel de la fonction de connexion
@@ -64,7 +80,15 @@ class Auteur
     }
 
 
-    // définition d'une méthode
+    /**
+     * insert un nouvel auteur(utilisateur dans la bdd)
+     *
+     * @param [type] $nom
+     * @param [type] $prenom
+     * @param [type] $email
+     * @param [type] $password
+     * @return void
+     */
     public function insertAuthor($nom, $prenom,$email, $password): void
     {  //void car la fonction ne retourne rien
         // appel de la fonction de connexion
