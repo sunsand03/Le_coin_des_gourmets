@@ -31,7 +31,7 @@ class Article
     /**
      * renvoit de manière alétoire un article contenu dans la bdd
      *
-     * @return void
+     * @return object
      */
     public function getRandomArticle()
   {
@@ -55,7 +55,7 @@ class Article
    * Renvoit un article selon l'id renseigné
    *
    * @param [type] $id
-   * @return void
+   * @return object
    */
   public function getArticle($id)
   {

@@ -13,19 +13,14 @@
 }
 
 /******************* TYPOGRAPHIE *****************/
-h2 {
+h1 {
     font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
     font-weight: 400;
     font-size: 3.25rem;
     color: var(--gris1);
 }
 
-.black h2{
-    color: var(--blanc);
-}
-
-h3,
-h3.card-title {
+h2, h3, .card-title {
     font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
     font-weight: 400;
     font-size: 1.7rem;
@@ -42,10 +37,6 @@ p, ul {
 
 /******************* COULEURS & EFFETS VISUELS *****************/
 
-
-.black {
-    background-color: var(--gris1);
-}
 .white {
     background-color: var(--blanc);
 }
@@ -57,10 +48,7 @@ p, ul {
 }
 
 /******************** NAVBAR **********************/
-/* .navbar-brand,
-.navbar-nav .nav-link.active {
-    color: var(--primary);
-} */
+
 
 .navbar-brand {
     font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
@@ -90,7 +78,10 @@ p, ul {
 .card {
     border: none;
     border-radius: 0;
+    height: 600px;
 }
+
+
 .card-img-top,
 .card-img-bottom{
     border-radius: 0;
@@ -130,18 +121,18 @@ p, ul {
 }
 
 /****** CARDS XL *****/
-.card.card-xl h6 {
+.card .card-xl {
     font-size: 1.05rem;
 }
-.card.card-xl .card-title { 
+.card .card-xl .card-title { 
     font-size: 1.7rem;
 }
-.card.card-xl p {
+.card .card-xl p {
     font-size: 1rem;
 }
 
 /****** CARDS SM *****/
-.card.card-xl h6 {
+.card .card-xl{
     font-size: .8rem;
     color: var(--gris2);
     line-height: 2rem;

@@ -1,71 +1,25 @@
- <!-- DEBUT FOOTER -->
- <footer class="white">
+<!-- charge les différents scripts -->
+<?php include_once './include/script.php'; ?>
+
+ <footer class="bg-dark">
         <div class="container">
+
             <div class="row">
-                <div class="col">
-                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="col">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                      </div>
-                </div>
+                <ul class="list-unstyled text-center mt-5">                    
+                    <li class="d-inline">
+                        <a href="https://fr-fr.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-2x text-secondary"></i></a>
+                    </li>
+                    <li class="d-inline">
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-2x text-secondary"></i></a>
+                    </li>
+                    <li class="d-inline">
+                        <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube fa-2x text-secondary"></i></a>
+                    </li>
+                </ul>
             </div>
-            <div class="row yellow">
-                <div class="col">
-                    <H6>ASTUCES</H6>
-                    <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Objectifs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Boîtiers Canon</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Reportages voyages</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Argentique</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Brocantes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Astuces</a>
-                                </li>
-                            </ul>
-                </div>
 
-                <div class="col">
-                    <H6>ASTUCES</H6>
-                    <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Objectifs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Boîtiers Canon</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Reportages voyages</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Argentique</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Brocantes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Astuces</a>
-                                </li>
-                            </ul>
-                </div>
-
-                <div class="col">
-                    <H6>ASTUCES</H6>
-                    <p>email@blog.com</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- FIN FOOTER -->
+           <div class="row text-center mt-1">
+                <p>Concocté avec ♥ par Le coin des gourmets</p>
+           </div>
+</footer>
+  

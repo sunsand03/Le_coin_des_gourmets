@@ -54,10 +54,10 @@
                             <!-- affiche 3 articles par ligne -->
                             <div class="col-4"> 
                                 <div class="card shadow h-100">
-                                    <div class="card-image row">
+                                    <div class="card-image row" style="height: 400px;">
 
                                         <!-- récupère l'image de l'article -->
-                                        <img src="<?php echo $rowCategory->image; ?>" class="h-70 w-80 object-fit-cover img-fluid"  alt="image de la recette">
+                                        <img src="<?php echo $rowCategory->image; ?>" class="img-fluid"  alt="image de la recette" style="height: 400px;">
                                     </div>
 
                                     <div class="card-body">
@@ -69,21 +69,25 @@
                                             
                                         </h3>
             
-                                        <!-- Affiche seulement les 200 premiers mots de l'article -->
-                                        <p class="card-text">                                            
+                                        <!-- Affiche seulement les 30 % du contenu de l'article -->
+                                        <p class="card-text">
                                             <?php
-                                                // Récupère tous les mots sous forme de tableau                 
-                                                $words = str_word_count($rowCategory->contenu, 1);
-                                                // Récupère les 200 premiers mots  
-                                                $first_200_words = array_slice($words, 0, 200);
-                                                // Convertit le tableau en chaîne de caractères  
-                                                $text = htmlspecialchars(implode(' ', $first_200_words), ENT_QUOTES, 'UTF-8');
-                                                // ajoute '...' à la fin du texte 
-                                                $text.= '...';
-                                                echo $text;
+                                                //récupère le contenu de l'article et le stocke dans $content
+                                                $content = $rowCategory->contenu;
+                                                //compte le nombre de caractère de l'article et le stocke dans $length 
+                                                $length = strlen($content);
+                                                //défini le pourcentage du contenu à afficher
+                                                $percentage = 0.30; 
+                                                //calcule la longueur correspondant au pourcentage spécifié du contenu
+                                                $selected_length = (int)($length * $percentage); 
+                                                // récupère la partie du texte sélectionnée
+                                                $selected_text = substr($content, 0, $selected_length); 
 
-                                            ?>                                            
+                                                //affiche la partie de l'article extrait avec '..' à la fin
+                                                echo htmlspecialchars($selected_text, ENT_QUOTES, 'UTF-8') . '...';
+                                            ?>
                                         </p>
+
 
                                         <!-- Lien vers la page détaillée de l'article -->
                                         <a href="article_details.php?id=<?php echo $rowCategory->id_article; ?>">Voir plus</a>  
@@ -116,7 +120,8 @@
 
     </main>
    
-            
+    <!-- charge le pied de page -->
+    <?php include_once './include/footer.php'; ?>     
 
 </body>
 
