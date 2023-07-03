@@ -8,7 +8,7 @@ include_once './include/session.php';
 $page = 'index';
 
 // appel du fichier contenant la méthode de débug
-require_once './bdd/debug.php';
+require_once './lib/debug.php';
 
 // appel des fichiers conntenant les classe utilisées   
 require_once './model/categorie.php';

@@ -1,7 +1,7 @@
 <?php
 
 //charge la méthode de débug
-require_once './bdd/debug.php';
+require_once './lib/debug.php';
 
 //charge les modèles
 require_once './model/article.php';

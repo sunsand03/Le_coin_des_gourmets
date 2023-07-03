@@ -7,7 +7,7 @@ include_once './include/session.php';
 $page = 'article';
 
 // appel du fichier contenant la méthode de débug
-    require_once './bdd/debug.php';
+    require_once './lib/debug.php';
 
 // appel du fichier conntenant la classe Article
     require_once './model/article.php';
