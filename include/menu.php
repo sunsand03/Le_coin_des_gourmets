@@ -13,11 +13,11 @@ if (isset($_SESSION['email']) && ($_SESSION['email']) != '') {
 
 <!-- rend la barre de navigation responsive, fixe et la colore en rouge -->
 <nav class="navbar navbar-expand-lg bg-danger text-white fixed-top">
-    <div class="container">
+    <div >
         <div class="logo">
 
             <a href="index.php" class="navbar-brand small">
-                <!-- <img src="./assets/pictures/icones-et-logo/logo.png" alt="logo" id="logo"> -->
+                Le coin des gourmets                
             </a>
         </div>
 
