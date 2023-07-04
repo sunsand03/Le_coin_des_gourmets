@@ -78,26 +78,5 @@
 
 
 
-<!-- NE MARCHE PAS -->
-<script>
-  // permet d'attendre le chargement complet de la page
-  document.addEventListener("DOMContentLoaded", function() {
-    // detection de tous les élements HTM%L contenant la classse fa-trash
-    let btn = document.querySelectorAll('.fa-trash');
-    // boucle sur tous les éléments
-    btn.forEach((elem) => {
-      // j'ajoute un évenement sur chaque bouton qui a la class fa-trash
-      elem.addEventListener('click', function(e) {
-        console.log(e.currentTarget.dataset.id);
-        // demande de confirmation à l'utilisateur
-        if (confirm('êtes vous sur de vouloir supprimer ?')) {
-          // si l'utilisateur répond oui, alors il va être redirigé vers la page qui correspond à l'article à supprimer
-          document.location.href = './article_delete.php?id=' + e.currentTarget.dataset.id;
-        }
-      })
-
-    })
-  })
-</script>
 
 </html>
