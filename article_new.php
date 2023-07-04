@@ -17,6 +17,8 @@ require_once './model/article.php';
 require_once './model/auteur.php';
 require_once './model/categorie.php';
 
+$messageError = " ";
+
 // vérifie avant l'envoi si l'article contient un titre. Si oui, assigne les données de la requête POST à $data.
 if (isset($_POST['titre'])) {
     $data = $_POST;
@@ -61,13 +63,15 @@ if (isset($_POST['titre'])) {
             // si l'insertion ne s'est pas bien passée  à cause de la taille de la photo  
             } else {
                 // affiche le message d'erreur
-                echo '<span style= "color:red;"> photo trop volumineuse </span> ';
+                // echo '<span style= "color:red;"> photo trop volumineuse </span> ';
+                $messageError = "photo trop volumineuse";
             }
         
         // si l'insertion ne s'est pas bien passée à cause du format de la photo
         } else {
             // affiche le message d'erreur
-            echo '<span style= "color:red;"> le type de fichier n\'est pas pris en charge </span> ';
+            // echo '<span style= "color:red;"> le type de fichier n\'est pas pris en charge </span> ';
+            $messageError = "le type de fichier n\'est pas pris en charge";
         }
     }
 }
