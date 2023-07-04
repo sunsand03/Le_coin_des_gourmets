@@ -7,8 +7,13 @@ require_once './lib/debug.php';
 require_once './model/article.php';
 require_once 'article_new.php';
 
-// récupération de l'id dans l'url
-$id = htmlspecialchars($_GET['id']);
+// récupération de l'id dans l'url si existant et redirection dans le cas contraire
+if(isset($_GET['id'])){
+    $id = htmlspecialchars($_GET['id']);
+}else{
+    header('Location:index.php');
+}
+
 
 // création d'une nouvelle instance de la classe Article
 $articleModel = new Article();
