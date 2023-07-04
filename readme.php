@@ -1,3 +1,9 @@
+<?php 
+require_once './lib/Parsedown.php';
+$parser = new Parsedown();
+$contents = file_get_contents('./readme.md');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +24,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                
+                <a href="index.php">< Retour</a>
+                <?=$parser->text($contents)?>
             </div>
         </div>
     </div>
