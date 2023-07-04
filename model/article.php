@@ -12,7 +12,7 @@ class Article
   /**
    * renvoit l'intégralité des articles contenus dans la bdd
    *
-   * @return void
+   * @return array
    */
   public function getAllArticle()
   {
@@ -181,7 +181,12 @@ class Article
     $this->insertCategoryArticle($data['id'], $data['category']);
   }
 
-  // définition d'une méthode
+  /**
+   * supprime un article dans la bdd
+   *
+   * @param [type] $id
+   * @return void
+   */
   public function deleteArticle($id)
   {
     // appel de la fonction de connexion
@@ -204,7 +209,7 @@ class Article
 
 
   /**
-   * renvoit tous les articles d'une catégorie
+   * récupère les catégories et l'id des articles associés
    *
    * @param [type] $id
    * @return array
@@ -227,7 +232,12 @@ class Article
     return ($result);
   }
 
-  // fonction test
+  /**
+   * récupère tous les articles et les catégories associées, non utilisée
+   *
+   * @param [type] $idCategory
+   * @return array
+   */
   public function getArticleByCategoryId($idCategory) 
   {
        // appel de la fonction de connexion
