@@ -82,42 +82,27 @@ p, ul {
 }
 
 
-.card-img-top,
-.card-img-bottom{
-    border-radius: 0;
-}
-.card h6 {
-    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 400;
-    font-size: .8rem;
-    color: var(--gris2);
-}
 .card .card-title {
     font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
     font-weight: 400;
     font-size: 1.25rem;
     color: var(--primary);
+    text-decoration: none;
 }
 .card .card-body {
     padding-bottom: 0;
 }
+
+.card-body a{
+    text-decoration: none;
+}
+
+
 .card p {
     font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
     font-size: .8rem;
     color: var(--gris2);
-}
-.card .card-footer {
-    background: none;
-    border: none;
-    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 400;
-    font-size: .875rem;
-    color: var(--gris2);
-    line-height: 2rem;
-}
-.card .card-footer ul {
-    margin-bottom: 0;
 }
 
 /****** CARDS XL *****/
@@ -147,44 +132,3 @@ p, ul {
     font-size: .6rem;
 }
 
-/*********************** SECTION OBJECTIFS ********************/
-#objectifs {
-   padding-top: 5.6rem; 
-   background-color: var(--background);
-}
-
-/*********************** SECTION BROCANTES ********************/
-#brocantes {
-    margin-top: 5.6rem; 
-    padding-bottom: 5rem;
-    padding-top: 5rem;
- }
-
- /*********************** SECTION ARGENTIQUES ********************/
-#argentique {
-    margin-top: 5.6rem; 
- }
-
-  /*********************** SECTION ASTUCES ********************/
-#astuces {
-    margin-top: 5.6rem; 
-    padding-bottom: 5rem;
-    padding-top: 5rem;
- }
-
-   /*********************** SECTION CATÉGORIES  ********************/
-
- #categories {
-    margin-top: 5.6rem; 
- }
-
-   /*********************** SECTION POSTS POPULAIRES ********************/
-
- #postspopulaires {
-    margin-top: 3rem;
-    font-size: .9rem;
- }
-
- .title1{
-    color: blue;
- }
