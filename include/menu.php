@@ -18,7 +18,7 @@ if (isset($_SESSION['email']) && ($_SESSION['email']) != '') {
             <!-- logo -->
             <div class="col">
                 <a href="index.php" class="navbar-brand small">
-                    Le coin des gourmets
+                    <img src="./assets/images/logo.png" alt="" style="height: 30px;">Le Coin des Gourmets
                 </a>
             </div>
 
