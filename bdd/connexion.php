@@ -1,7 +1,10 @@
 <?php
 
-// connection à la base de données
-
+/**
+ * Connexion à la base de données
+ *
+ * @return $conn
+ */
 function connect(){
 
     $conn = new PDO("mysql:host=localhost;port=3306;dbname=blog","root","root");
