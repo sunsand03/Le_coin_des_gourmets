@@ -32,7 +32,7 @@
 
          <!-- affiche l'image de l'article -->
          <p>
-            <img src="<?php echo $article->image; ?>" >
+            <img src="<?php echo $article->image; ?>" class="custom-image rounded" style="max-height:400px" width="auto">
         </p>
 
         
@@ -47,7 +47,7 @@
 
         <!-- récupère la vidéo de l'article si existante -->
         <p>
-            <iframe width="560" height="315" src="<?php echo $article->video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="650" height="400" src="<?php echo $article->video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </p>
 
     </div>
